@@ -32,6 +32,7 @@ public class PointOfSale implements BarcodeListener, ExitCodeListener {
         printFacade.printOnScan(barcode, this.productReceipt);
 
     }
+    
 
 
 }

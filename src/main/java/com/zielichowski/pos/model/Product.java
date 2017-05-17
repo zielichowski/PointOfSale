@@ -18,7 +18,11 @@ public class Product implements Printable {
     @Getter
     private String barcode;
 
-    public String print() {
-        return this.name + " \t" + this.price;
+    public String print(Exporter destination) {
+        destination.addFieldToPrint(name);
+        destination.addFieldToPrint(price.toString());
+        return destination.toString();
     }
+
+
 }

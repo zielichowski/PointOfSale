@@ -1,6 +1,5 @@
 package com.zielichowski.pos.facades;
 
-import com.zielichowski.pos.devices.input.BarcodeScanner;
 import com.zielichowski.pos.devices.output.Display;
 import com.zielichowski.pos.devices.output.OutputDevice;
 import com.zielichowski.pos.model.Product;
@@ -8,7 +7,6 @@ import com.zielichowski.pos.model.ProductReceipt;
 import com.zielichowski.pos.model.Receipt;
 import com.zielichowski.pos.repository.ProductRepository;
 import com.zielichowski.pos.util.Message;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

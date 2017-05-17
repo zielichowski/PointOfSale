@@ -8,10 +8,11 @@ import org.junit.Test;
  */
 public class ProductTest {
     private Product product = new Product(1l, "FirstProduct", 20.0, "1");
+    private Exporter exporter = new DemoFormatExporter();
 
     @Test
     public void testProductPrint() {
         String expected = "FirstProduct" + " \t" + "20.0";
-        Assert.assertEquals(expected, product.print());
+        Assert.assertEquals(expected, product.print(exporter));
     }
 }

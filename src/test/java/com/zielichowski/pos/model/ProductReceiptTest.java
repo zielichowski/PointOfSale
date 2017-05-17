@@ -9,6 +9,7 @@ import org.junit.Test;
  */
 public class ProductReceiptTest {
     private Receipt receipt = new ProductReceipt();
+    private Exporter exporter = new DemoFormatExporter();
 
     @Before
     public void addTwoProductsToProductReceipt() {
@@ -22,29 +23,28 @@ public class ProductReceiptTest {
     @Test
     public void testProductReceiptPrint() {
 
-        StringBuilder stringBuilder = new StringBuilder(100);
-        String expected = stringBuilder.append("One").append("\t").append(10.0).append("\n")
-                .append("Two").append("\t").append(20.0).append("\n")
-                .append(30.0).toString();
+        String expected = "One" + " \t" + 10.0 + " \t" +
+                "Two" + " \t" + 20.0 + " \t" +
+                30.0+" \t";
 
-        Assert.assertEquals(expected, receipt.print());
+        Assert.assertEquals(expected, receipt.print(exporter));
     }
 
     @Test
     public void testGetTotal() {
         Double expected = 30.0;
-        Assert.assertEquals(expected, receipt.getTotal(), 0.00);
+        Assert.assertEquals(expected, receipt.getTotal(), 0.0001);
     }
 
     @Test
     public void testClearReceipt() {
-        String expectedPrint = "0.0";
+        String expectedPrint = "0.0"+" \t";
         Double expectedTotal = 0.0;
 
         receipt.clear();
 
-        Assert.assertEquals(expectedTotal,receipt.getTotal());
-        Assert.assertEquals(expectedPrint,receipt.print());
+        Assert.assertEquals(expectedTotal, receipt.getTotal());
+        Assert.assertEquals(expectedPrint, receipt.print(exporter));
     }
 
 }
